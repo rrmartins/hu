@@ -1,0 +1,6 @@
+*.log
+*.sw[pon]
+*~
+.DS_Store
+/node_modules/*
+config/config.js
