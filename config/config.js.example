@@ -1,0 +1,43 @@
+var config = {};
+
+config.elasticsearch = {
+  host: process.env.DB_HOST || 'http://localhost:9200'
+};
+
+config.app = {
+  port: '3030'
+};
+
+config.cookie = {
+  domain : 'hu.com.br'
+}
+
+config.logger = {
+  production: {
+    error : '/hu/logs/hu_search/error.log',
+    level : 'info',
+    out   : '/hu/logs/hu_search/out.log'
+  },
+
+  development: {
+    error : 'logs/error.log',
+    level : 'debug',
+    out   : 'logs/out.log'
+  }
+};
+
+config.api = {
+  test: {
+    token: '8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D'
+  },
+
+  development: {
+    token: '8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D'
+  },
+
+  production: {
+    token: '8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D'
+  }
+};
+
+module.exports = config;
