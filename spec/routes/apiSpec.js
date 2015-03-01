@@ -9,22 +9,39 @@ function context(description, spec) {
 };
 
 describe('#api #hotel', function(){
-  beforeEach(function(){
-    var that = this;
+  describe('#search', function(){
+    context('hotels', function(){
+      beforeEach(function(){
+        var that = this;
 
-    connection.create({
-      index: config.elasticsearch.indexName,
-      type:  config.elasticsearch.type,
-      id: '1',
-      body: {
-        "name" : "Plaza Hotel", "city" : "Rio de Janeiro", "uf" : "RJ"
-      }
-    }, function (error, response) {
-      that.create = true;
-    });
+        connection.create({
+          index: config.elasticsearch.indexName,
+          type:  config.elasticsearch.type,
+          id: '1',
+          refresh: true,
+          body: {
+            "name" : "Plaza Hotel", "city" : "Rio de Janeiro", "uf" : "RJ"
+          }
+        }, function (error, response) {
+          that.create = true;
+        });
 
-    waitsFor(function(){
-      return that.create !== undefined;
+        waitsFor(function(){
+          return that.create !== undefined;
+        });
+      });
+
+      it('returns all hotels', function(done){
+        request
+          .get('/api/search')
+          .set('X-API-KEY', config.key.test.token)
+          .send()
+          .send()
+          .end(function(error, response){
+            expect(response.body.length).toEqual(1);
+            done();
+          });
+      });
     });
   });
 
@@ -43,21 +60,4 @@ describe('#api #hotel', function(){
       return that.delete !== undefined;
     });
   });
-
-  describe('#search', function(){
-    context('hotels', function(){
-      it('returns all hotels', function(done){
-        request
-          .get('/api/search')
-          .set('X-API-TOKEN', config.key.test.token)
-          .send()
-          .send()
-          .end(function(error, response){
-            expect(response.body.length).toEqual(1);
-            done();
-          });
-      });
-    });
-  });
-
 });
