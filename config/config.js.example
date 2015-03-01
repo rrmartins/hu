@@ -1,7 +1,9 @@
 var config = {};
 
 config.elasticsearch = {
-  host: process.env.DB_HOST || 'http://localhost:9200'
+  host:      process.env.DB_HOST  || 'http://localhost:9200',
+  indexName: process.env.DB_INDEX || 'hu',
+  type:      process.env.DB_TYPE  || 'hotels'
 };
 
 config.app = {
