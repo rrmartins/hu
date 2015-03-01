@@ -8,7 +8,7 @@ exports.validate = function(request, response, next){
   env = process.env.NODE_ENV || 'development';
 
   if(key == config.key[env].token){
-    logger.info('[HU_SEARCH] x-api-key correct, the key is: '+key)
+    logger.debug('[HU_SEARCH] x-api-key correct, the key is: '+key)
     next();
   } else {
     logger.error('[HU_SEARCH] Error to pass x-api-key correct, the key is: '+key)
