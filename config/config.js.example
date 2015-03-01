@@ -26,7 +26,7 @@ config.logger = {
   }
 };
 
-config.api = {
+config.key = {
   test: {
     token: '8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D'
   },
