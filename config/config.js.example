@@ -23,7 +23,7 @@ config.logger = {
 
   development: {
     error : 'logs/error.log',
-    level : 'debug',
+    level : 'info',
     out   : 'logs/out.log'
   }
 };
