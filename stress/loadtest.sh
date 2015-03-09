@@ -18,13 +18,13 @@ curl -XPOST "http://localhost:9200/hu/hotels/2" -d '{ "name" : "Vitoria Plaza Ho
 
 echo "Start loadtest."
 echo ""
-loadtest -n 5000 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search
+loadtest -n 5000 -c 60 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search
 
-loadtest -n 5000 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search?params=rio
+loadtest -n 5000 -c 60 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search?params=rio
 
-loadtest -n 5000 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search?params=es
+loadtest -n 5000 -c 60 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search?params=es
 
-loadtest -n 5000 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search?params=vitoria
+loadtest -n 5000 -c 60 -H x-api-key:8F2CAB946BB513C7795D43DA52E5D8D4D9ED1055BBB60150F07CA004D8EC0E8D http://localhost:3030/api/search?params=vitoria
 echo ""
 echo "Done loadtest."
 
